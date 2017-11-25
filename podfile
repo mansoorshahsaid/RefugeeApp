@@ -8,5 +8,6 @@ target 'RefugeeApp' do
   # Pods for RefugeeApp
 
 pod 'Firebase/Database'
+pod 'lottie-ios'
 
 end
