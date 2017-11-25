@@ -17,6 +17,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        
+        
+        /* For the most part, your application’s window never changes. After the window is created, it stays the same and only the views displayed by it change.
+         Every application has at least one window that displays the application’s user interface on a device’s main screen.
+         If an external display is connected to the device, applications can create a second window to present content on that screen as well.*/
+        
+        //Replacing storyboard with own window manually
+        /*The UIWindow class’s screen property represents the specific device display on which the window is currently displayed.
+         This property contains a screen object—that is, an instance of UIScreen—that contains information about the device display, such as its bounds, mode, and brightness. */
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        //make this window visible
+        window?.makeKeyAndVisible()
+        
+        //Root view
+        window?.rootViewController = UINavigationController(rootViewController: LoginController())
+        
         return true
     }
 
