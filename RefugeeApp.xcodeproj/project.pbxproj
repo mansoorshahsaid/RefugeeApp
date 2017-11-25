@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C82AEB7ECAD631FF0C8DEC2 /* Pods_RefugeeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83801C0CF34AA47F29141ECD /* Pods_RefugeeApp.framework */; };
 		892E7C0B1FC9F54700590BEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E7C0A1FC9F54700590BEC /* AppDelegate.swift */; };
 		892E7C0D1FC9F54700590BEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E7C0C1FC9F54700590BEC /* ViewController.swift */; };
 		892E7C101FC9F54700590BEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892E7C0E1FC9F54700590BEC /* Main.storyboard */; };
 		892E7C121FC9F54700590BEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 892E7C111FC9F54700590BEC /* Assets.xcassets */; };
 		892E7C151FC9F54700590BEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892E7C131FC9F54700590BEC /* LaunchScreen.storyboard */; };
+		98518B881FCA208E001BFAD1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98518B871FCA208E001BFAD1 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83801C0CF34AA47F29141ECD /* Pods_RefugeeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RefugeeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		892E7C071FC9F54700590BEC /* RefugeeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefugeeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		892E7C0A1FC9F54700590BEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		892E7C0C1FC9F54700590BEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,9 @@
 		892E7C111FC9F54700590BEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		892E7C141FC9F54700590BEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		892E7C161FC9F54700590BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98518B871FCA208E001BFAD1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A6A564ECD26EEA6DC97C76C7 /* Pods-RefugeeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefugeeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RefugeeApp/Pods-RefugeeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		BED2EF492DB08321BAB90CD6 /* Pods-RefugeeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefugeeApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RefugeeApp/Pods-RefugeeApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C82AEB7ECAD631FF0C8DEC2 /* Pods_RefugeeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29CF8828BC2F87CBF465FC1D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A6A564ECD26EEA6DC97C76C7 /* Pods-RefugeeApp.debug.xcconfig */,
+				BED2EF492DB08321BAB90CD6 /* Pods-RefugeeApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7277BEFC2D10C578B56C9A83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83801C0CF34AA47F29141ECD /* Pods_RefugeeApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		892E7BFE1FC9F54700590BEC = {
 			isa = PBXGroup;
 			children = (
 				892E7C091FC9F54700590BEC /* RefugeeApp */,
 				892E7C081FC9F54700590BEC /* Products */,
+				29CF8828BC2F87CBF465FC1D /* Pods */,
+				7277BEFC2D10C578B56C9A83 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +86,7 @@
 				892E7C111FC9F54700590BEC /* Assets.xcassets */,
 				892E7C131FC9F54700590BEC /* LaunchScreen.storyboard */,
 				892E7C161FC9F54700590BEC /* Info.plist */,
+				98518B871FCA208E001BFAD1 /* GoogleService-Info.plist */,
 			);
 			path = RefugeeApp;
 			sourceTree = "<group>";
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 892E7C191FC9F54700590BEC /* Build configuration list for PBXNativeTarget "RefugeeApp" */;
 			buildPhases = (
+				3B7C2095CBDFD98DE88737C7 /* [CP] Check Pods Manifest.lock */,
 				892E7C031FC9F54700590BEC /* Sources */,
 				892E7C041FC9F54700590BEC /* Frameworks */,
 				892E7C051FC9F54700590BEC /* Resources */,
+				D72F686F7714D79C337DED64 /* [CP] Embed Pods Frameworks */,
+				DAF4C26A3A2393E62A0370EB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,10 +156,69 @@
 				892E7C151FC9F54700590BEC /* LaunchScreen.storyboard in Resources */,
 				892E7C121FC9F54700590BEC /* Assets.xcassets in Resources */,
 				892E7C101FC9F54700590BEC /* Main.storyboard in Resources */,
+				98518B881FCA208E001BFAD1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3B7C2095CBDFD98DE88737C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RefugeeApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D72F686F7714D79C337DED64 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RefugeeApp/Pods-RefugeeApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RefugeeApp/Pods-RefugeeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAF4C26A3A2393E62A0370EB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RefugeeApp/Pods-RefugeeApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		892E7C031FC9F54700590BEC /* Sources */ = {
@@ -272,10 +361,11 @@
 		};
 		892E7C1A1FC9F54700590BEC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6A564ECD26EEA6DC97C76C7 /* Pods-RefugeeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZY9GV3DVUU;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = RefugeeApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mansoorss.RefugeeApp;
@@ -287,10 +377,11 @@
 		};
 		892E7C1B1FC9F54700590BEC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BED2EF492DB08321BAB90CD6 /* Pods-RefugeeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZY9GV3DVUU;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = RefugeeApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mansoorss.RefugeeApp;
