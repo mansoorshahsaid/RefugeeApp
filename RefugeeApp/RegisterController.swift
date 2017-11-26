@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class RegisterController: UIViewController {
+class RegisterController: UIViewController, UITextFieldDelegate {
     
     let datePicker = UIDatePicker()
     var position:CGFloat = 50
@@ -37,6 +37,15 @@ class RegisterController: UIViewController {
         
         scrollView.addSubview(titleRegistration)
         position += 60
+        
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+        self.genderTextField.delegate = self
+        self.firstNameTextField.delegate = self
+        self.lastNameTextField.delegate = self
+        self.ageTextField.delegate = self
+        self.countryOfOriginTextField.delegate = self
+        self.professionTextField.delegate = self
         
         
         placeView(view: emailTextField)
@@ -357,6 +366,16 @@ class RegisterController: UIViewController {
 
     }
 
+    //MARK: Hide Keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return(true)
+    }
+    
 
 }
 
