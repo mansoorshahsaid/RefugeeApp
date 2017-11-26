@@ -77,7 +77,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         button.setTitle("Login", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.layer.cornerRadius = 10
         
         button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
@@ -90,7 +90,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.layer.cornerRadius = 10
         
         button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
@@ -210,7 +210,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
         // need x, y, width, height constraints
         loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 100).isActive = true
-        loginButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
         loginButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         loginButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         
@@ -220,8 +220,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
     func setupRegisterButton(){
         
         // need x, y, width, height constraints
-        registerButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10).isActive = true
-        registerButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        registerButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 30).isActive = true
+        registerButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
         registerButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         registerButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         
