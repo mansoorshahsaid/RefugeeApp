@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		3C82AEB7ECAD631FF0C8DEC2 /* Pods_RefugeeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83801C0CF34AA47F29141ECD /* Pods_RefugeeApp.framework */; };
+		892CAD441FCA5027008A9031 /* login-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 892CAD431FCA5025008A9031 /* login-animation.json */; };
+		892CAD461FCA5D6B008A9031 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892CAD451FCA5D6B008A9031 /* User.swift */; };
 		71CF49461FCA341E0038FCF2 /* InitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CF49451FCA341E0038FCF2 /* InitialController.swift */; };
 		892E7C0B1FC9F54700590BEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E7C0A1FC9F54700590BEC /* AppDelegate.swift */; };
 		892E7C0D1FC9F54700590BEC /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E7C0C1FC9F54700590BEC /* LoginController.swift */; };
 		892E7C101FC9F54700590BEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892E7C0E1FC9F54700590BEC /* Main.storyboard */; };
 		892E7C121FC9F54700590BEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 892E7C111FC9F54700590BEC /* Assets.xcassets */; };
 		892E7C151FC9F54700590BEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892E7C131FC9F54700590BEC /* LaunchScreen.storyboard */; };
+		983702AE1FCA5A52000E02E9 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983702AD1FCA5A52000E02E9 /* RegisterController.swift */; };
 		98518B881FCA208E001BFAD1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98518B871FCA208E001BFAD1 /* GoogleService-Info.plist */; };
 		BB481CEC1FCA64B9005394B7 /* VerifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB481CEB1FCA64B9005394B7 /* VerifyController.swift */; };
 /* End PBXBuildFile section */
@@ -21,6 +24,8 @@
 /* Begin PBXFileReference section */
 		71CF49451FCA341E0038FCF2 /* InitialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialController.swift; sourceTree = "<group>"; };
 		83801C0CF34AA47F29141ECD /* Pods_RefugeeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RefugeeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		892CAD431FCA5025008A9031 /* login-animation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "login-animation.json"; sourceTree = "<group>"; };
+		892CAD451FCA5D6B008A9031 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		892E7C071FC9F54700590BEC /* RefugeeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefugeeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		892E7C0A1FC9F54700590BEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		892E7C0C1FC9F54700590BEC /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -28,6 +33,7 @@
 		892E7C111FC9F54700590BEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		892E7C141FC9F54700590BEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		892E7C161FC9F54700590BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		983702AD1FCA5A52000E02E9 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		98518B871FCA208E001BFAD1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A6A564ECD26EEA6DC97C76C7 /* Pods-RefugeeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefugeeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RefugeeApp/Pods-RefugeeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		BB481CEB1FCA64B9005394B7 /* VerifyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyController.swift; sourceTree = "<group>"; };
@@ -63,6 +69,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		892CAD471FCA5DC3008A9031 /* animations */ = {
+			isa = PBXGroup;
+			children = (
+				892CAD431FCA5025008A9031 /* login-animation.json */,
+			);
+			path = animations;
+			sourceTree = "<group>";
+		};
 		892E7BFE1FC9F54700590BEC = {
 			isa = PBXGroup;
 			children = (
@@ -88,11 +102,14 @@
 				892E7C0C1FC9F54700590BEC /* LoginController.swift */,
 				BB481CEB1FCA64B9005394B7 /* VerifyController.swift */,
 				71CF49451FCA341E0038FCF2 /* InitialController.swift */,
+				983702AD1FCA5A52000E02E9 /* RegisterController.swift */,
 				892E7C0E1FC9F54700590BEC /* Main.storyboard */,
 				892E7C111FC9F54700590BEC /* Assets.xcassets */,
+				892CAD451FCA5D6B008A9031 /* User.swift */,
 				892E7C131FC9F54700590BEC /* LaunchScreen.storyboard */,
 				892E7C161FC9F54700590BEC /* Info.plist */,
 				98518B871FCA208E001BFAD1 /* GoogleService-Info.plist */,
+				892CAD471FCA5DC3008A9031 /* animations */,
 			);
 			path = RefugeeApp;
 			sourceTree = "<group>";
@@ -159,6 +176,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				892CAD441FCA5027008A9031 /* login-animation.json in Resources */,
 				892E7C151FC9F54700590BEC /* LaunchScreen.storyboard in Resources */,
 				892E7C121FC9F54700590BEC /* Assets.xcassets in Resources */,
 				892E7C101FC9F54700590BEC /* Main.storyboard in Resources */,
@@ -194,6 +212,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RefugeeApp/Pods-RefugeeApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
@@ -201,6 +220,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
@@ -233,10 +253,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				983702AE1FCA5A52000E02E9 /* RegisterController.swift in Sources */,
 				71CF49461FCA341E0038FCF2 /* InitialController.swift in Sources */,
 				892E7C0D1FC9F54700590BEC /* LoginController.swift in Sources */,
 				BB481CEC1FCA64B9005394B7 /* VerifyController.swift in Sources */,
 				892E7C0B1FC9F54700590BEC /* AppDelegate.swift in Sources */,
+				892CAD461FCA5D6B008A9031 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

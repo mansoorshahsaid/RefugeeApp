@@ -13,6 +13,7 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var userGlobal:User!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -33,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Root view
         window?.rootViewController = UINavigationController(rootViewController: VerifyController())
-        
         return true
     }
 
