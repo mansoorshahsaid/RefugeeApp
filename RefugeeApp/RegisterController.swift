@@ -51,7 +51,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         self.professionTextField.delegate = self
         
         
-        if (user == nil){
+        if (user == nil && !employeeVerification){
             placeView(view: emailTextField)
             placeView(view: passwordTextField)
         }
@@ -79,6 +79,11 @@ class RegisterController: UIViewController, UITextFieldDelegate {
        // createDatePicker()
         createDatePicker2 ()
         
+        if (employeeVerification){
+            fillAllTextViews2()
+            return
+        }
+        
         if (user != nil){
             fillInAllTextViews()
         }
@@ -103,6 +108,17 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         ageTextField.text = user.dateOfBirth
         countryOfOriginTextField.text = user.countryOfOrigin
         professionTextField.text = user.profession
+    }
+    
+    func fillAllTextViews2(){
+        emailTextField.text = "Bob@bob.com"
+        passwordTextField.text = "dsadss"
+        genderTextField.text = "Andres"
+        firstNameTextField.text = "Dead"
+        lastNameTextField.text = "Sad"
+        ageTextField.text = "November 26, 2017"
+        countryOfOriginTextField.text = "Das"
+        professionTextField.text = "Sad"
     }
     
 //    override func viewDidLayoutSubviews() {
