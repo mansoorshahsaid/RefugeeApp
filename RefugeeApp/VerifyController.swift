@@ -36,7 +36,7 @@ class VerifyController: UIViewController {
         button.setTitle("Verify Now by Helper", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
         
         //button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
@@ -49,7 +49,7 @@ class VerifyController: UIViewController {
         button.setTitle("Postpone", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
 
         //button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
@@ -105,7 +105,7 @@ class VerifyController: UIViewController {
     
     func setupThanksMessage(){
         // need x, y, width, height constraints
-        thanksMessage.translatesAutoresizingMaskIntoConstraints = false
+        //thanksMessage.translatesAutoresizingMaskIntoConstraints = false
         thanksMessage.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 80).isActive = true
         thanksMessage.heightAnchor.constraint(equalToConstant: 40).isActive = true
         thanksMessage.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
@@ -114,8 +114,8 @@ class VerifyController: UIViewController {
     
     func setupDoneMessage(){
         // need x, y, width, height constraints
-        doneMessage.translatesAutoresizingMaskIntoConstraints = false
-        doneMessage.topAnchor.constraint(equalTo: thanksMessage.bottomAnchor, constant: 10).isActive = true
+        //doneMessage.translatesAutoresizingMaskIntoConstraints = false
+        doneMessage.topAnchor.constraint(equalTo: thanksMessage.bottomAnchor, constant: 5).isActive = true
         doneMessage.heightAnchor.constraint(equalToConstant: 40).isActive = true
         doneMessage.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         doneMessage.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
@@ -125,15 +125,15 @@ class VerifyController: UIViewController {
     func setupVerifyButton(){
         // need x, y, width, height constraints
         verifyButton.topAnchor.constraint(equalTo: doneMessage.bottomAnchor, constant: 80).isActive = true
-        verifyButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        verifyButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         verifyButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         verifyButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
     }
     
     func setupPostponeButton(){
         // need x, y, width, height constraints
-        postponeButton.topAnchor.constraint(equalTo: verifyButton.bottomAnchor, constant: 25).isActive = true
-        postponeButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        postponeButton.topAnchor.constraint(equalTo: verifyButton.bottomAnchor, constant: 10).isActive = true
+        postponeButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         postponeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         postponeButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
     }
