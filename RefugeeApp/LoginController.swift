@@ -11,7 +11,7 @@ import Lottie
 import Firebase
 import FirebaseAuth
 
-class LoginController: UIViewController {
+class LoginController: UIViewController, UITextFieldDelegate {
 
     var animationView:LOTAnimationView!
     
@@ -25,6 +25,9 @@ class LoginController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.nameTextField.delegate = self
+        self.passwordTextField.delegate = self
         
         view.backgroundColor = UIColor.white//Setting the background color for the view
         
@@ -212,8 +215,20 @@ class LoginController: UIViewController {
         
 
     }
-
+    
+    //MARK: Hide Keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return(true)
+    }
+    
 }
+
+
 
 
 //Extending the methods offered by UICOLOR
