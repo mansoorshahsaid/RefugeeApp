@@ -21,7 +21,6 @@ class RegisterController: UIViewController {
         let screen = UIScreen.main.bounds
         
         view.backgroundColor = UIColor.white//Setting the background color for the view
-        
         self.view.addSubview(scrollView)
         
         
@@ -88,9 +87,11 @@ class RegisterController: UIViewController {
         let screenWidth = screensize.width
         let screenHeight = screensize.height
         var scrollView: UIScrollView!
-        let v = UIScrollView(frame: CGRect(x: 0, y: 60, width: screenWidth, height: screenHeight))
+        
+        let v = UIScrollView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
         v.contentSize = CGSize(width: screenWidth, height: 900)
         v.isScrollEnabled = true
+        v.contentInsetAdjustmentBehavior = .never
         //v.translatesAutoresizingMaskIntoConstraints = false
         //v.backgroundColor = UIColor.white
         return v
@@ -108,6 +109,7 @@ class RegisterController: UIViewController {
     let passwordTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Password"
+        tf.isSecureTextEntry = true
         tf.borderStyle = UITextBorderStyle.roundedRect
         //tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
@@ -323,6 +325,13 @@ class RegisterController: UIViewController {
     }
     
     
+    func isValidEmail(testStr:String) -> Bool {
+        // print("validate calendar: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
     
    @objc  func handleLoginRegister(){
 
@@ -335,9 +344,33 @@ class RegisterController: UIViewController {
     let countryOfOrigin = countryOfOriginTextField.text!
     let profession = professionTextField.text!
     
+    if (email == "" || password == "" || gender == "" || firstName == "" || lastName == "" || dateOfBirth == "" || countryOfOrigin == "" || profession == ""){
+        let alert = UIAlertController(title: "Missing fields", message: "Please fill in missing registration fields.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        return;
+    }
+    
+    if (password.count < 6){
+        let alert = UIAlertController(title: "Password too short", message: "The password must be 6 characters long or more", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        return;
+    }
+    
+    if(isValidEmail(testStr: email) == false){
+        let alert = UIAlertController(title: "Email invalid", message: "Please enter a valid email address", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        return;
+    }
+    
     Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
         if (error != nil || user?.uid == nil){
             print("cannot register")
+            let alert = UIAlertController(title: "Oops! Something went wrong", message: "The email address is already in use by another account.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             print(error)
             return
         }
