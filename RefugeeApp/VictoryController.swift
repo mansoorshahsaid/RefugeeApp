@@ -47,7 +47,8 @@ class VictoryController: UIViewController {
     let identifierMessage: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 600, height: 40))
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "352857"
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        label.text = String(appDelegate.userGlobal.uniqueNumber)
         label.numberOfLines = 0;
         label.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.0)
         label.font = UIFont.boldSystemFont(ofSize: 40)

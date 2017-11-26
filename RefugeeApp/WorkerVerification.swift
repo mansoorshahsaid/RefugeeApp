@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class WorkerVerfication: UIViewController {
     
@@ -35,8 +36,25 @@ class WorkerVerfication: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        
+        button.addTarget(self, action: #selector(verifyAction), for: .touchUpInside)
+
         return button
     }()
+    
+    @objc func verifyAction(){
+        Database.database().reference().child("users").queryOrdered(byChild: "uniqueNumber").queryEqual(toValue: uniqueNumber.text!).observeSingleEvent(of: .value) { (snapshot) in
+            if (snapshot.value != nil){
+                let alert = UIAlertController(title: "Alert", message: "No refugee found for this number.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "Success!", message: "Refugee information updated and verified!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

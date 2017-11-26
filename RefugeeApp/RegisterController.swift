@@ -79,8 +79,9 @@ class RegisterController: UIViewController, UITextFieldDelegate {
        // createDatePicker()
         createDatePicker2 ()
         
-        fillInAllTextViews()
-        
+        if (user != nil){
+            fillInAllTextViews()
+        }
         
 
     }
@@ -402,7 +403,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
             
             let verify = self.isEmployee
             let employee = self.switchEmployee.isOn
-            let dictionary = ["email":email, "gender":gender, "firstName":firstName, "lastName":lastName, "dateOfBirth":dateOfBirth, "countryOfOrigin":countryOfOrigin, "profession":profession, "employee":employee, "verify":verify] as [String : Any]
+            let uniqueNumber:Int = Int(arc4random_uniform(899999)+100000)
+            let dictionary = ["email":email, "gender":gender, "firstName":firstName, "lastName":lastName, "dateOfBirth":dateOfBirth, "countryOfOrigin":countryOfOrigin, "profession":profession, "employee":employee, "verify":verify, "uniqueNumber":uniqueNumber] as [String : Any]
             
             Database.database().reference().child("users").child((user?.uid)!).setValue(dictionary)
             
