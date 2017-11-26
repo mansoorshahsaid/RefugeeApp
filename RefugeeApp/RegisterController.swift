@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class RegisterController: UIViewController {
     
@@ -283,23 +285,27 @@ class RegisterController: UIViewController {
     
     
     
-    
-    
-    
-    
-    
    @objc  func handleLoginRegister(){
 
-    let email = emailTextField.text
-    let password = passwordTextField.text
-    let gender = genderTextField.text
-    let firstName = firstNameTextField.text
-    let lastName = lastNameTextField.text
-    let dateOfBirth = ageTextField.text
-    let countryOfOrigin = countryOfOriginTextField.text
-    let profession = professionTextField.text
+    let email = emailTextField.text!
+    let password = passwordTextField.text!
+    let gender = genderTextField.text!
+    let firstName = firstNameTextField.text!
+    let lastName = lastNameTextField.text!
+    let dateOfBirth = ageTextField.text!
+    let countryOfOrigin = countryOfOriginTextField.text!
+    let profession = professionTextField.text!
     
-    
+    Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+        if (error != nil || user?.uid == nil){
+            print("cannot register")
+            return
+        }
+        
+        let dictionary = ["gender":gender, "firstName":firstName, "lastName":lastName, "dateOfBirth":dateOfBirth, "countryOfOrigin":countryOfOrigin, "profession":profession, "employee":0] as [String : Any]
+        
+        Database.database().reference().child("users").child((user?.uid)!).setValue(dictionary)
+    }
 
     }
 

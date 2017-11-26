@@ -11,9 +11,11 @@ import Firebase
 import FirebaseAuth
 
 class User:NSObject{
+    var id:String!
     var fireBaseUser:UserInfo
     
     init(user:UserInfo) {
         fireBaseUser = user
+        id = user.uid
     }
 }
