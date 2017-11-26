@@ -64,7 +64,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         
         let viewx = UIView(frame: CGRect(x: 0, y: position, width: 200, height: 40))
         let labelEmployee = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-        labelEmployee.text = "Employee?"
+        labelEmployee.text = "Helper?"
         viewx.addSubview(labelEmployee)
         switchEmployee = UISwitch(frame: CGRect(x: 120, y: 0, width: 40, height: 40))
         viewx.addSubview(switchEmployee)

@@ -36,7 +36,7 @@ class VerifyController: UIViewController {
         button.setTitle("Verify Now by Helper", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.layer.cornerRadius = 10
         
         button.addTarget(self, action: #selector(handleFindHelper), for: .touchUpInside)
@@ -49,10 +49,10 @@ class VerifyController: UIViewController {
         button.setTitle("Postpone", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.layer.cornerRadius = 10
 
-        //button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
         return button
     }()
     
@@ -72,7 +72,7 @@ class VerifyController: UIViewController {
     let doneMessage: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 600, height: 40))
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Registration forms completed"
+        label.text = "Please verify your Information"
         label.numberOfLines = 0;
         label.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.0)
         label.font = UIFont .boldSystemFont(ofSize: 15)
@@ -97,7 +97,7 @@ class VerifyController: UIViewController {
     func setupProfileImageView(){
         // need x, y, width, height constraints
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
+        profileImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 130).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         
@@ -125,15 +125,15 @@ class VerifyController: UIViewController {
     func setupVerifyButton(){
         // need x, y, width, height constraints
         verifyButton.topAnchor.constraint(equalTo: doneMessage.bottomAnchor, constant: 60).isActive = true
-        verifyButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        verifyButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
         verifyButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         verifyButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
     }
     
     func setupPostponeButton(){
         // need x, y, width, height constraints
-        postponeButton.topAnchor.constraint(equalTo: verifyButton.bottomAnchor, constant: 10).isActive = true
-        postponeButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        postponeButton.topAnchor.constraint(equalTo: verifyButton.bottomAnchor, constant: 30).isActive = true
+        postponeButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
         postponeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         postponeButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
     }
