@@ -13,7 +13,7 @@ import FirebaseAuth
 class RegisterController: UIViewController {
     
     let datePicker = UIDatePicker()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
