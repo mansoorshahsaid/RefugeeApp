@@ -342,9 +342,9 @@ class RegisterController: UIViewController {
             return
         }
         
-        let verify = true
+        let verify = false
         
-        let dictionary = ["email":email, "gender":gender, "firstName":firstName, "lastName":lastName, "dateOfBirth":dateOfBirth, "countryOfOrigin":countryOfOrigin, "profession":profession, "employee":true, "verify":verify] as [String : Any]
+        let dictionary = ["email":email, "gender":gender, "firstName":firstName, "lastName":lastName, "dateOfBirth":dateOfBirth, "countryOfOrigin":countryOfOrigin, "profession":profession, "employee":false, "verify":verify] as [String : Any]
         
         Database.database().reference().child("users").child((user?.uid)!).setValue(dictionary)
         
