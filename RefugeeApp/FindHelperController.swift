@@ -123,7 +123,7 @@ class FindHelperController: UIViewController {
     func setupFindHelperMessage(){
         // need x, y, width, height constraints
         //registerMessage.translatesAutoresizingMaskIntoConstraints = false
-        findHelperMessage.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
+        findHelperMessage.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
         findHelperMessage.heightAnchor.constraint(equalToConstant: 40).isActive = true
         findHelperMessage.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         findHelperMessage.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
