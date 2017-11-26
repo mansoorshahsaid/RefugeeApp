@@ -34,6 +34,7 @@ class HomeController: UIViewController {
         button.addTarget(self, action: #selector(updateAction), for: .touchUpInside)
 
         return button
+        
     }()
     
     let updateButton: UIButton = {
@@ -63,6 +64,7 @@ class HomeController: UIViewController {
         return button
     }()
     
+
     @objc func updateAction(){
         let register = RegisterController()
         if (isEmployee){
@@ -84,8 +86,6 @@ class HomeController: UIViewController {
         let verify = VerifyController()
         self.navigationController?.pushViewController(verify, animated: true)
     }
-    
-    
     
     
 
@@ -160,4 +160,6 @@ class HomeController: UIViewController {
         findHelperButton.layer.cornerRadius = 10
     } //Trademark Kevin 2017
 
+    
+    
 }
