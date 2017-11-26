@@ -43,7 +43,7 @@ class WorkerVerfication: UIViewController {
     }()
     
     @objc func verifyAction(){
-        Database.database().reference().child("users").queryOrdered(byChild: "uniqueNumber").queryEqual(toValue: Int(uniqueNumber.text!)).observeSingleEvent(of: .value) { (snapshot) in
+        Database.database().reference().child("users").queryOrdered(byChild: "uniqueNumber").queryEqual(toValue: uniqueNumber.text!).observeSingleEvent(of: .value) { (snapshot) in
             if (snapshot.value != nil){
                 let alert = UIAlertController(title: "Alert", message: "No refugee found for this number.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))

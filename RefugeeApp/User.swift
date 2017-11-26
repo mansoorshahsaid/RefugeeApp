@@ -38,6 +38,9 @@ class User:NSObject{
         profession = dictionary["profession"] as! String
         employee = dictionary["employee"] as! Bool
         verified = dictionary["verify"] as! Bool
-        uniqueNumber = dictionary["uniqueNumber"] as! Int
+        if (dictionary["uniqueNumber"] != nil){
+            uniqueNumber = dictionary["uniqueNumber"] as! Int
+        }
+        uniqueNumber = 0
     }
 }
