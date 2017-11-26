@@ -15,6 +15,7 @@
 		892E7C121FC9F54700590BEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 892E7C111FC9F54700590BEC /* Assets.xcassets */; };
 		892E7C151FC9F54700590BEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892E7C131FC9F54700590BEC /* LaunchScreen.storyboard */; };
 		98518B881FCA208E001BFAD1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98518B871FCA208E001BFAD1 /* GoogleService-Info.plist */; };
+		BB481CEC1FCA64B9005394B7 /* VerifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB481CEB1FCA64B9005394B7 /* VerifyController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		892E7C161FC9F54700590BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98518B871FCA208E001BFAD1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A6A564ECD26EEA6DC97C76C7 /* Pods-RefugeeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefugeeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RefugeeApp/Pods-RefugeeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		BB481CEB1FCA64B9005394B7 /* VerifyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyController.swift; sourceTree = "<group>"; };
 		BED2EF492DB08321BAB90CD6 /* Pods-RefugeeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefugeeApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RefugeeApp/Pods-RefugeeApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +86,7 @@
 			children = (
 				892E7C0A1FC9F54700590BEC /* AppDelegate.swift */,
 				892E7C0C1FC9F54700590BEC /* LoginController.swift */,
+				BB481CEB1FCA64B9005394B7 /* VerifyController.swift */,
 				71CF49451FCA341E0038FCF2 /* InitialController.swift */,
 				892E7C0E1FC9F54700590BEC /* Main.storyboard */,
 				892E7C111FC9F54700590BEC /* Assets.xcassets */,
@@ -232,6 +235,7 @@
 			files = (
 				71CF49461FCA341E0038FCF2 /* InitialController.swift in Sources */,
 				892E7C0D1FC9F54700590BEC /* LoginController.swift in Sources */,
+				BB481CEC1FCA64B9005394B7 /* VerifyController.swift in Sources */,
 				892E7C0B1FC9F54700590BEC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
