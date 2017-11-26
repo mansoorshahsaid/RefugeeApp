@@ -19,7 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         
-        
+        //Nav bar
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().tintColor = UIColor(r: 41, g: 199, b: 150)
+
         /* For the most part, your application’s window never changes. After the window is created, it stays the same and only the views displayed by it change.
          Every application has at least one window that displays the application’s user interface on a device’s main screen.
          If an external display is connected to the device, applications can create a second window to present content on that screen as well.*/
