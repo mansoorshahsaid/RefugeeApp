@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C82AEB7ECAD631FF0C8DEC2 /* Pods_RefugeeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83801C0CF34AA47F29141ECD /* Pods_RefugeeApp.framework */; };
-		71CF49461FCA341E0038FCF2 /* InitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CF49451FCA341E0038FCF2 /* InitialController.swift */; };
+		71ABB8831FCAD876004CC2FA /* WorkerVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ABB8821FCAD876004CC2FA /* WorkerVerification.swift */; };
 		71CF49481FCA849D0038FCF2 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CF49471FCA849D0038FCF2 /* HomeController.swift */; };
 		892CAD441FCA5027008A9031 /* login-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 892CAD431FCA5025008A9031 /* login-animation.json */; };
 		892CAD461FCA5D6B008A9031 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892CAD451FCA5D6B008A9031 /* User.swift */; };
@@ -26,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		71ABB8821FCAD876004CC2FA /* WorkerVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerVerification.swift; sourceTree = "<group>"; };
 		71CF49471FCA849D0038FCF2 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		83801C0CF34AA47F29141ECD /* Pods_RefugeeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RefugeeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		892CAD431FCA5025008A9031 /* login-animation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "login-animation.json"; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 				BB481CEB1FCA64B9005394B7 /* VerifyController.swift */,
 				983702AF1FCA93AD000E02E9 /* MapController.swift */,
 				983702AD1FCA5A52000E02E9 /* RegisterController.swift */,
+				71ABB8821FCAD876004CC2FA /* WorkerVerification.swift */,
 				BB481CF01FCA9EC4005394B7 /* FindHelperController.swift */,
 				BB481CF21FCAB35B005394B7 /* VictoryController.swift */,
 				892E7C0E1FC9F54700590BEC /* Main.storyboard */,
@@ -265,6 +267,7 @@
 			files = (
 				BB481CF31FCAB35B005394B7 /* VictoryController.swift in Sources */,
 				BB481CF11FCA9EC4005394B7 /* FindHelperController.swift in Sources */,
+				71ABB8831FCAD876004CC2FA /* WorkerVerification.swift in Sources */,
 				983702AE1FCA5A52000E02E9 /* RegisterController.swift in Sources */,
 				71CF49481FCA849D0038FCF2 /* HomeController.swift in Sources */,
 				892E7C0D1FC9F54700590BEC /* LoginController.swift in Sources */,

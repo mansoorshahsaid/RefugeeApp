@@ -31,6 +31,7 @@ class HomeController: UIViewController {
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         return button
+        
     }()
     
     let updateButton: UIButton = {
@@ -53,9 +54,7 @@ class HomeController: UIViewController {
         return button
     }()
     
-    
-    
-    
+    //MARK: View Did Load
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,4 +127,6 @@ class HomeController: UIViewController {
         findHelperButton.layer.cornerRadius = 10
     } //Trademark Kevin 2017
 
+    
+    
 }

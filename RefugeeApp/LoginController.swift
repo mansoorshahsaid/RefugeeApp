@@ -229,8 +229,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
 }
 
 
-
-
 //Extending the methods offered by UICOLOR
 extension UIColor {
     
