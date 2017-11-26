@@ -106,7 +106,7 @@ class VerifyController: UIViewController {
     func setupThanksMessage(){
         // need x, y, width, height constraints
         //thanksMessage.translatesAutoresizingMaskIntoConstraints = false
-        thanksMessage.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 25).isActive = true
+        thanksMessage.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 50).isActive = true
         thanksMessage.heightAnchor.constraint(equalToConstant: 40).isActive = true
         thanksMessage.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         thanksMessage.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
@@ -124,7 +124,7 @@ class VerifyController: UIViewController {
     
     func setupVerifyButton(){
         // need x, y, width, height constraints
-        verifyButton.topAnchor.constraint(equalTo: doneMessage.bottomAnchor, constant: 80).isActive = true
+        verifyButton.topAnchor.constraint(equalTo: doneMessage.bottomAnchor, constant: 60).isActive = true
         verifyButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         verifyButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         verifyButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
