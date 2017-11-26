@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         //Root view
-        window?.rootViewController = UINavigationController(rootViewController: PinsController())
+        window?.rootViewController = UINavigationController(rootViewController: VerifyController())
         return true
     }
 
