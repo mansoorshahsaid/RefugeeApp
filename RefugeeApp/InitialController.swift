@@ -10,18 +10,37 @@ import UIKit
 
 class InitialController: UIViewController {
 
+    //MASK: Buttons
+    
+    let loginRegisterButton: UIButton = {
+        
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.blue
+        button.setTitle("Login", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.addSubview(loginRegisterButton)
         view.backgroundColor = UIColor.white
-        
-        
-        
+        setupLoginRegisterButton()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    //MARK: Constraints
+    
+    func setupLoginRegisterButton() {
+        
+        loginRegisterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loginRegisterButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        loginRegisterButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        loginRegisterButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        loginRegisterButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
     }
     
 
