@@ -68,7 +68,7 @@ class HomeController: UIViewController {
     @objc func updateAction(){
         let register = RegisterController()
         if (isEmployee){
-            // send to new vc
+            self.navigationController?.pushViewController(WorkerVerfication(), animated: true)
         } else {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             register.user = appDelegate.userGlobal

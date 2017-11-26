@@ -22,6 +22,7 @@ class User:NSObject{
     var profession:String!
     var employee:Bool!
     var verified:Bool!
+    var uniqueNumber:Int!
     var dictonary:[String:Any]!
 
     
@@ -37,5 +38,6 @@ class User:NSObject{
         profession = dictionary["profession"] as! String
         employee = dictionary["employee"] as! Bool
         verified = dictionary["verify"] as! Bool
+        uniqueNumber = dictionary["uniqueNumber"] as! Int
     }
 }
