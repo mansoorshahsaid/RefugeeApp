@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 
 class User:NSObject{
     var fireBaseUser:UserInfo

@@ -9,6 +9,7 @@
 import UIKit
 import Lottie
 import Firebase
+import FirebaseAuth
 
 class LoginController: UIViewController {
 
@@ -76,7 +77,7 @@ class LoginController: UIViewController {
                 return
             }
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.userGlobal = User(user: user)
+            appDelegate.userGlobal = User(user: user!)
         }
         
 //        animationView.play { (true) in
