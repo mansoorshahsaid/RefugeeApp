@@ -40,7 +40,8 @@ class User:NSObject{
         verified = dictionary["verify"] as! Bool
         if (dictionary["uniqueNumber"] != nil){
             uniqueNumber = dictionary["uniqueNumber"] as! Int
+        } else {
+            uniqueNumber = 0
         }
-        uniqueNumber = 0
     }
 }
