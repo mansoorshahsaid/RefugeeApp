@@ -13,7 +13,7 @@ import FirebaseAuth
 class RegisterController: UIViewController, UIScrollViewDelegate {
     
     let datePicker = UIDatePicker()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

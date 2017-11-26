@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Root view
 
-        window?.rootViewController = UINavigationController(rootViewController: InitialController())
+        window?.rootViewController = UINavigationController(rootViewController: HomeController())
 
         
         return true

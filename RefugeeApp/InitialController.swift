@@ -10,7 +10,7 @@ import UIKit
 
 class InitialController: UIViewController {
     
-    //MASK: Logo Placement
+    //MARK: Logo Placement
     
     let topImage: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "Logo"))
@@ -19,7 +19,7 @@ class InitialController: UIViewController {
         return imageView
     }()
 
-    //MASK: Buttons
+    //MARK: Buttons
     
     let loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)//system sytled button
@@ -51,7 +51,7 @@ class InitialController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
+        
         view.addSubview(topImage)
         view.addSubview(loginRegisterButton)
         view.addSubview(signupButton)
@@ -73,7 +73,6 @@ class InitialController: UIViewController {
     
     func setupLoginRegisterButton() {
         loginRegisterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        loginRegisterButton.bottomAnchor.constraint(equalTo: signupButton.topAnchor, constant: 70).isActive = true
         loginRegisterButton.topAnchor.constraint(equalTo: topImage.bottomAnchor, constant: 265).isActive = true
         loginRegisterButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         loginRegisterButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
