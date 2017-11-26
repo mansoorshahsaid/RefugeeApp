@@ -39,7 +39,7 @@ class VerifyController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
         
-        //button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleFindHelper), for: .touchUpInside)
         return button
     }()
     
@@ -106,7 +106,7 @@ class VerifyController: UIViewController {
     func setupThanksMessage(){
         // need x, y, width, height constraints
         //thanksMessage.translatesAutoresizingMaskIntoConstraints = false
-        thanksMessage.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 80).isActive = true
+        thanksMessage.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 25).isActive = true
         thanksMessage.heightAnchor.constraint(equalToConstant: 40).isActive = true
         thanksMessage.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         thanksMessage.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
@@ -138,6 +138,10 @@ class VerifyController: UIViewController {
         postponeButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
     }
 
+    @objc func handleFindHelper(){
+        
+        self.navigationController?.pushViewController(FindHelperController(), animated: true)
+    }
 
 }
 
