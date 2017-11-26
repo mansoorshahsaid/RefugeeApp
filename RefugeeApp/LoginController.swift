@@ -57,7 +57,7 @@ class LoginController: UIViewController {
     let loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)//system sytled button
         button.backgroundColor = UIColor(r: 41, g: 199, b: 150)
-        button.setTitle("Register", for: .normal)
+        button.setTitle("Log In", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
@@ -135,8 +135,10 @@ class LoginController: UIViewController {
         
         
     }
+    
 
 }
+
 
 //Extending the methods offered by UICOLOR
 extension UIColor {
