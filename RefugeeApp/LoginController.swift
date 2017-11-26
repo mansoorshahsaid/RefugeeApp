@@ -57,10 +57,10 @@ class LoginController: UIViewController {
     let loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)//system sytled button
         button.backgroundColor = UIColor(r: 41, g: 199, b: 150)
-        button.setTitle("Log In", for: .normal)
+        button.setTitle("Login", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.layer.cornerRadius = 10
         
         button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
@@ -129,7 +129,7 @@ class LoginController: UIViewController {
         
         // need x, y, width, height constraints
         loginRegisterButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 100).isActive = true
-        loginRegisterButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        loginRegisterButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
         loginRegisterButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         loginRegisterButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         

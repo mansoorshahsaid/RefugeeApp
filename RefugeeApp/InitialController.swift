@@ -28,21 +28,29 @@ class InitialController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        
+        button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
+        
         return button
     }()
     
     let signupButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 41, g: 199, b:150)
-        button.setTitle("Signup", for: .normal)
+        button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        
+        button.addTarget(self, action: #selector(handleSignUpRegister), for: .touchUpInside)
+        
         return button
     }()
     
     
-    override func viewDidLoad() {        super.viewDidLoad()
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
 
         view.addSubview(topImage)
         view.addSubview(loginRegisterButton)
@@ -55,6 +63,10 @@ class InitialController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     //MARK: Constraints
@@ -85,6 +97,14 @@ class InitialController: UIViewController {
         topImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 130).isActive = true
         topImage.widthAnchor.constraint(equalToConstant: 150).isActive = true
         topImage.heightAnchor.constraint(equalToConstant: 150).isActive = true
+    }
+    
+    @objc func handleLoginRegister(){
+        self.navigationController?.show(LoginController(), sender: self)
+    }
+    
+    @objc func handleSignUpRegister(){
+       self.navigationController?.show(RegisterController(), sender: self)
     }
     
 }
