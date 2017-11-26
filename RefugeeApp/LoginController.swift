@@ -210,11 +210,6 @@ class LoginController: UIViewController {
         
         
     }
-    
-   @objc func handleRegister(){
-        
-        self.navigationController?.pushViewController(RegisterController(), animated: true)
-    }
 
 }
 
