@@ -26,6 +26,12 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Needs access to location at all times</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Needs access to location </string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Needs access to location when in usage</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
