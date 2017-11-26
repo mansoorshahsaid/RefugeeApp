@@ -15,12 +15,12 @@ class PinsController: UIViewController {
 
     view.backgroundColor = UIColor.white
         
-    view.addSubview(firstName)
+    view.addSubview(fullName)
     view.addSubview(imageWoman)
     view.addSubview(howFar)
     view.addSubview(phoneNumber)
     
-    setupFirstName()
+    setupFullName()
     setupImageWoman()
     setupHowFar()
     setupPhoneNumber()
@@ -28,7 +28,7 @@ class PinsController: UIViewController {
     }
     
     //FULL NAME
-        let firstName: UILabel = {
+        let fullName: UILabel = {
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: 600, height: 40))
             label.translatesAutoresizingMaskIntoConstraints = false
             label.text = "Jane Doe"
@@ -41,12 +41,12 @@ class PinsController: UIViewController {
             return label
         }()
     
-        func setupFirstName(){
+        func setupFullName(){
             // need x, y, width, height constraints
-            firstName.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
-            firstName.heightAnchor.constraint(equalToConstant: 25).isActive = true
-            firstName.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
-            firstName.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
+            fullName.topAnchor.constraint(equalTo: view.topAnchor, constant: 130).isActive = true
+            fullName.heightAnchor.constraint(equalToConstant: 25).isActive = true
+            fullName.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
+            fullName.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         }
     
     //PHOTO
@@ -64,7 +64,7 @@ class PinsController: UIViewController {
         func setupImageWoman(){
             // need x, y, width, height constraints
             imageWoman.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            imageWoman.bottomAnchor.constraint(equalTo: firstName.bottomAnchor, constant: 200).isActive = true
+            imageWoman.bottomAnchor.constraint(equalTo: fullName.bottomAnchor, constant: 200).isActive = true
             imageWoman.widthAnchor.constraint(equalToConstant: 150).isActive = true
             imageWoman.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
