@@ -122,9 +122,11 @@ class LoginController: UIViewController {
                 let dictionary = snapshot.value as! [String:Any]
                 
                 appDelegate.userGlobal = User(user: user!, dictionary: dictionary)
-                print(appDelegate.userGlobal)
                 
-                //send for home controller
+                let homeController = HomeController()
+                homeController.isEmployee = appDelegate.userGlobal.employee
+                
+                self.navigationController?.pushViewController(homeController, animated: true)
                 
             }) { (error) in
                 print(error.localizedDescription)
@@ -208,7 +210,7 @@ class LoginController: UIViewController {
         registerButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         registerButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         
-        
+
     }
 
 }

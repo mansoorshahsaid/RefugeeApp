@@ -13,9 +13,12 @@ import FirebaseAuth
 class RegisterController: UIViewController {
     
     let datePicker = UIDatePicker()
+    var position:CGFloat = 50
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let screen = UIScreen.main.bounds
         
         view.backgroundColor = UIColor.white//Setting the background color for the view
         
@@ -27,27 +30,37 @@ class RegisterController: UIViewController {
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         
+        let titleRegistration = UILabel(frame: CGRect(x: 0, y: 0, width: screen.width, height: 100))
+        titleRegistration.textAlignment = .center
+        titleRegistration.text = "Registration"
+        titleRegistration.font = UIFont(name: titleRegistration.font.fontName, size: 40)
         
-       
-        scrollView.addSubview(emailTextField)
-        scrollView.addSubview(passwordTextField)
-        scrollView.addSubview(genderTextField)
-        scrollView.addSubview(firstNameTextField)
-        scrollView.addSubview(lastNameTextField)
-        scrollView.addSubview(ageTextField)
-        scrollView.addSubview(countryOfOriginTextField)
-        scrollView.addSubview(professionTextField)
+        scrollView.addSubview(titleRegistration)
+        position += 60
+        
+        
+        placeView(view: emailTextField)
+        placeView(view: passwordTextField)
+        placeView(view: genderTextField)
+        placeView(view: firstNameTextField)
+        placeView(view: lastNameTextField)
+        placeView(view: ageTextField)
+        placeView(view: countryOfOriginTextField)
+        placeView(view: professionTextField)
+        
+        let viewx = UIView(frame: CGRect(x: 0, y: position, width: 200, height: 40))
+        let labelEmployee = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        labelEmployee.text = "Employee?"
+        viewx.addSubview(labelEmployee)
+        let switchEmployee = UISwitch(frame: CGRect(x: 120, y: 0, width: 40, height: 40))
+        viewx.addSubview(switchEmployee)
+        viewx.center = CGPoint(x: screen.width/2, y: position)
+        position += 60
+        scrollView.addSubview(viewx)
+        
+        loginRegisterButton.frame = CGRect(x: 0, y: 0, width: 300, height: 55)
+        loginRegisterButton.center = CGPoint(x: screen.width/2, y: position)
         scrollView.addSubview(loginRegisterButton)
-
-        setupEmailTextField()
-        setupPasswordTextField()
-        setupGenderTextField()
-        setupFirstNameTextField()
-        setupLastNameTextField()
-        setupAgeNameTextField()
-        setupCountryOfOriginTextField()
-        setupProfessionTextField()
-        setupRegisterButton()
         
        // createDatePicker()
         createDatePicker2 ()
@@ -56,16 +69,30 @@ class RegisterController: UIViewController {
 
     }
     
+    func placeView(view:UIView){
+        let screen = UIScreen.main.bounds
+        view.frame = CGRect(x: 0, y: 0, width: 300, height: 40)
+        view.center = CGPoint(x: screen.width/2, y: position)
+        scrollView.addSubview(view)
+        position += 60
+        
+    }
+    
 //    override func viewDidLayoutSubviews() {
 //        super.viewDidLayoutSubviews()
 //        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: 2000)
 //    }
     
     let scrollView: UIScrollView = {
-        let v = UIScrollView()
+        let screensize: CGRect = UIScreen.main.bounds
+        let screenWidth = screensize.width
+        let screenHeight = screensize.height
+        var scrollView: UIScrollView!
+        let v = UIScrollView(frame: CGRect(x: 0, y: 60, width: screenWidth, height: screenHeight))
+        v.contentSize = CGSize(width: screenWidth, height: 900)
         v.isScrollEnabled = true
-        v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = UIColor.white
+        //v.translatesAutoresizingMaskIntoConstraints = false
+        //v.backgroundColor = UIColor.white
         return v
     }()
     
@@ -74,7 +101,7 @@ class RegisterController: UIViewController {
         let tf = UITextField()
         tf.placeholder = "Email"
         tf.borderStyle = UITextBorderStyle.roundedRect
-        tf.translatesAutoresizingMaskIntoConstraints = false
+        //tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
     
@@ -82,7 +109,7 @@ class RegisterController: UIViewController {
         let tf = UITextField()
         tf.placeholder = "Password"
         tf.borderStyle = UITextBorderStyle.roundedRect
-        tf.translatesAutoresizingMaskIntoConstraints = false
+        //tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
     
@@ -90,7 +117,7 @@ class RegisterController: UIViewController {
         let tf = UITextField()
         tf.placeholder = "Gender"
         tf.borderStyle = UITextBorderStyle.roundedRect
-        tf.translatesAutoresizingMaskIntoConstraints = false
+        //tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
     
@@ -98,7 +125,7 @@ class RegisterController: UIViewController {
         let tf = UITextField()
         tf.placeholder = "First Name"
         tf.borderStyle = UITextBorderStyle.roundedRect
-        tf.translatesAutoresizingMaskIntoConstraints = false
+        //tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
     
@@ -106,7 +133,7 @@ class RegisterController: UIViewController {
         let tf = UITextField()
         tf.placeholder = "Last Name"
         tf.borderStyle = UITextBorderStyle.roundedRect
-        tf.translatesAutoresizingMaskIntoConstraints = false
+        //tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
     
@@ -114,7 +141,7 @@ class RegisterController: UIViewController {
         let tf = UITextField()
         tf.placeholder = "Date Of Birth"
         tf.borderStyle = UITextBorderStyle.roundedRect
-        tf.translatesAutoresizingMaskIntoConstraints = false
+        //tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
     
@@ -122,7 +149,7 @@ class RegisterController: UIViewController {
         let tf = UITextField()
         tf.placeholder = "Country of Origin"
         tf.borderStyle = UITextBorderStyle.roundedRect
-        tf.translatesAutoresizingMaskIntoConstraints = false
+        //tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
     
@@ -130,7 +157,7 @@ class RegisterController: UIViewController {
         let tf = UITextField()
         tf.placeholder = "Profession"
         tf.borderStyle = UITextBorderStyle.roundedRect
-        tf.translatesAutoresizingMaskIntoConstraints = false
+        //tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
     
@@ -138,7 +165,7 @@ class RegisterController: UIViewController {
         let button = UIButton(type: .system)//system sytled button
         button.backgroundColor = UIColor(r: 41, g: 199, b: 150)
         button.setTitle("Register", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
+        //button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.layer.cornerRadius = 10
@@ -315,7 +342,9 @@ class RegisterController: UIViewController {
             return
         }
         
-        let dictionary = ["email":email, "gender":gender, "firstName":firstName, "lastName":lastName, "dateOfBirth":dateOfBirth, "countryOfOrigin":countryOfOrigin, "profession":profession, "employee":false] as [String : Any]
+        let verify = true
+        
+        let dictionary = ["email":email, "gender":gender, "firstName":firstName, "lastName":lastName, "dateOfBirth":dateOfBirth, "countryOfOrigin":countryOfOrigin, "profession":profession, "employee":true, "verify":verify] as [String : Any]
         
         Database.database().reference().child("users").child((user?.uid)!).setValue(dictionary)
         

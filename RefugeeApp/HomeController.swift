@@ -12,6 +12,8 @@ class HomeController: UIViewController {
     
     //MARK: Image
     
+    var isEmployee:Bool!
+    
     let topImage: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "Logo"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -24,7 +26,7 @@ class HomeController: UIViewController {
     let registrationButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 41, g: 199, b: 150)
-        button.setTitle("Register", for: .normal)
+        button.setTitle("Update Information", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
@@ -34,7 +36,7 @@ class HomeController: UIViewController {
     let updateButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 41, g:199, b:150)
-        button.setTitle("Update Information", for: .normal)
+        button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
@@ -61,14 +63,19 @@ class HomeController: UIViewController {
         
         view.backgroundColor = UIColor.white
         
-        view.addSubview(updateButton)
-        view.addSubview(registrationButton)
-        view.addSubview(findHelperButton)
         view.addSubview(topImage)
+        view.addSubview(registrationButton)
         setupRegistrationButton()
-        setupUpdateButton()
-        setupHelperButton()
         setupImage()
+        
+        if (isEmployee){
+            view.addSubview(updateButton)
+            setupUpdateButton()
+            
+        } else {
+            view.addSubview(findHelperButton)
+            setupHelperButton()
+        }
     }
 
     
