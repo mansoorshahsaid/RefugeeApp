@@ -22,13 +22,17 @@ class LoginController: UIViewController {
         //lay view on the main view
         view.addSubview(nameTextField)
         view.addSubview(passwordTextField)
-        view.addSubview(loginRegisterButton)
+        view.addSubview(loginButton)
         view.addSubview(profileImageView)
+        view.addSubview(registerButton)
+        view.addSubview(registerMessage)
 
         setuplogInTextField()
         setupPasswordTextField()
-        setupRegisterButton()
+        setupLoginButton()
         setupProfileImageView()
+        setupRegisterButton()
+        setupRegisterMessage()
         
 //        let screen = UIScreen.main.bounds
 //        animationView = LOTAnimationView(name: "login-animation")
@@ -54,17 +58,43 @@ class LoginController: UIViewController {
         return tf
     }()
     
-    let loginRegisterButton: UIButton = {
+    let loginButton: UIButton = {
         let button = UIButton(type: .system)//system sytled button
         button.backgroundColor = UIColor(r: 41, g: 199, b: 150)
         button.setTitle("Login", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
         
-        button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
+        //button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
+    }()
+    
+    let registerButton: UIButton = {
+        let button = UIButton(type: .system)//system sytled button
+        button.backgroundColor = UIColor(r: 41, g: 199, b: 150)
+        button.setTitle("Register", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.layer.cornerRadius = 10
+        
+        button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
+        return button
+    }()
+    
+    let registerMessage: UILabel = {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 600, height: 40))
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Don't have an account?\nClick 'Register' to make one."
+        label.numberOfLines = 0;
+        label.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.0)
+        label.font = UIFont .systemFont(ofSize: 15)
+        label.textColor = UIColor(r: 41, g: 199, b: 150)
+        label.textAlignment = .center
+        
+        return label;
     }()
     
     @objc func handleLoginRegister(){
@@ -72,12 +102,23 @@ class LoginController: UIViewController {
         let password = passwordTextField.text!
         
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            if (error != nil){
+            if (error != nil || user?.uid == nil){
                 print("error logging in")
                 return
             }
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.userGlobal = User(user: user!)
+            
+            let userID = user?.uid
+            Database.database().reference().child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+                let dictionary = snapshot.value as! [String:Any]
+                
+                appDelegate.userGlobal = User(user: user!, dictionary: dictionary)
+                print(appDelegate.userGlobal)
+                
+                
+            }) { (error) in
+                print(error.localizedDescription)
+            }
         }
         
 //        animationView.play { (true) in
@@ -120,22 +161,46 @@ class LoginController: UIViewController {
         // need x, y, width, height constraints
         passwordTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         passwordTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
-        passwordTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 25).isActive = true
+        passwordTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 10).isActive = true
         passwordTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+    }
+    
+    func setupRegisterMessage(){
+        // need x, y, width, height constraints
+        //registerMessage.translatesAutoresizingMaskIntoConstraints = false
+        registerMessage.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 10).isActive = true
+        registerMessage.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        registerMessage.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
+        registerMessage.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
+    }
+    
+    func setupLoginButton(){
+        
+        // need x, y, width, height constraints
+        loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 100).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        loginButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
+        loginButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
+        
         
     }
     
     func setupRegisterButton(){
         
         // need x, y, width, height constraints
-        loginRegisterButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 100).isActive = true
-        loginRegisterButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
-        loginRegisterButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
-        loginRegisterButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
+        registerButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10).isActive = true
+        registerButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        registerButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
+        registerButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         
         
     }
     
+   @objc func handleRegister(){
+        
+        self.navigationController?.pushViewController(RegisterController(), animated: true)
+    }
 
 }
 
