@@ -1,0 +1,124 @@
+//
+//  HomeController.swift
+//  RefugeeApp
+//
+//  Created by Kevin Ferrandiz Izquierdo on 2017-11-26.
+//  Copyright © 2017 Mansoor Shah Said. All rights reserved.
+//
+
+import UIKit
+
+class HomeController: UIViewController {
+    
+    //MARK: Image
+    
+    let topImage: UIImageView = {
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "Logo"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    //MARK: Buttons
+    
+    let registrationButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor(r: 41, g: 199, b: 150)
+        button.setTitle("Register", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        return button
+    }()
+    
+    let updateButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor(r: 41, g:199, b:150)
+        button.setTitle("Update Information", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        return button
+    }()
+    
+    let findHelperButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor(r: 41, g:199, b:150)
+        button.setTitle("Find Helper Near Me", for: .normal)
+       button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        return button
+    }()
+    
+    
+    
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+        view.backgroundColor = UIColor.white
+        
+        view.addSubview(updateButton)
+        view.addSubview(registrationButton)
+        view.addSubview(findHelperButton)
+        view.addSubview(topImage)
+        setupRegistrationButton()
+        setupUpdateButton()
+        setupHelperButton()
+        setupImage()
+    }
+
+    
+    
+    
+    //MARK: Hide Navigation Bar
+    
+    override func viewWillAppear(_ animated: Bool) {
+    self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    //MARK: Constraints
+    
+    func setupImage() {
+        
+        topImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        topImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 130).isActive = true
+        topImage.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        topImage.heightAnchor.constraint(equalToConstant: 150).isActive = true
+    }
+    
+    func setupRegistrationButton() {
+        registrationButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        registrationButton.topAnchor.constraint(equalTo: topImage.bottomAnchor, constant: 265).isActive = true
+        registrationButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
+        registrationButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
+        registrationButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        registrationButton.layer.cornerRadius = 10
+    }
+    
+    func setupUpdateButton() {
+        updateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        updateButton.topAnchor.constraint(equalTo: registrationButton.bottomAnchor, constant: 30).isActive = true
+        updateButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
+        updateButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
+        updateButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        updateButton.layer.cornerRadius = 10
+    }
+    
+    func setupHelperButton() {
+        findHelperButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        findHelperButton.topAnchor.constraint(equalTo: registrationButton.bottomAnchor, constant: 30).isActive = true
+        findHelperButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
+        findHelperButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
+        findHelperButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        findHelperButton.layer.cornerRadius = 10
+    } //Trademark Kevin 2017
+
+}

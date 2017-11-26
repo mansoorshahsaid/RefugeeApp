@@ -14,6 +14,15 @@ import FirebaseAuth
 class LoginController: UIViewController {
 
     var animationView:LOTAnimationView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,7 +76,7 @@ class LoginController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
         
-        //button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
     
@@ -97,7 +106,7 @@ class LoginController: UIViewController {
         return label;
     }()
     
-    @objc func handleLoginRegister(){
+    @objc func handleLogin(){
         let email = nameTextField.text!
         let password = passwordTextField.text!
         
@@ -115,6 +124,7 @@ class LoginController: UIViewController {
                 appDelegate.userGlobal = User(user: user!, dictionary: dictionary)
                 print(appDelegate.userGlobal)
                 
+                //send for home controller
                 
             }) { (error) in
                 print(error.localizedDescription)
@@ -124,6 +134,10 @@ class LoginController: UIViewController {
 //        animationView.play { (true) in
 //            self.animationView.setProgressWithFrame(1)
 //        }
+    }
+    
+    @objc func handleRegister(){
+        self.navigationController?.pushViewController(RegisterController(), animated: true)
     }
     
     lazy var profileImageView: UIImageView = {
@@ -195,11 +209,6 @@ class LoginController: UIViewController {
         registerButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         
         
-    }
-    
-   @objc func handleRegister(){
-        
-        self.navigationController?.pushViewController(RegisterController(), animated: true)
     }
 
 }
