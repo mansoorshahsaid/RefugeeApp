@@ -13,6 +13,7 @@ class HomeController: UIViewController {
     //MARK: Image
     
     var isEmployee:Bool!
+    var isVerified:Bool!
     
     let topImage: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "Logo"))
@@ -67,7 +68,7 @@ class HomeController: UIViewController {
 
     @objc func updateAction(){
         let register = RegisterController()
-        if (isEmployee){
+        if (isEmployee && isVerified){
             self.navigationController?.pushViewController(WorkerVerfication(), animated: true)
         } else {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -78,7 +79,9 @@ class HomeController: UIViewController {
     
     @objc func registerAction(){
         let register = RegisterController()
-        register.isEmployee = true
+        if (isEmployee && isVerified){
+            register.isEmployee = true
+        }
         self.navigationController?.pushViewController(register, animated: true)
     }
     
@@ -100,7 +103,7 @@ class HomeController: UIViewController {
         setupRegistrationButton()
         setupImage()
         
-        if (isEmployee){
+        if (isEmployee && isVerified){
             view.addSubview(updateButton)
             setupUpdateButton()
             

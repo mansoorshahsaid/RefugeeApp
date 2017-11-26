@@ -139,6 +139,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 
                 let homeController = HomeController()
                 homeController.isEmployee = appDelegate.userGlobal.employee
+                homeController.isVerified = appDelegate.userGlobal.verified
                 
                 self.navigationController?.pushViewController(homeController, animated: true)
                 
