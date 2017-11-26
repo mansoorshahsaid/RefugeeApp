@@ -14,6 +14,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     
     let datePicker = UIDatePicker()
     var position:CGFloat = 50
+    var isEmployee = false
+    var switchEmployee:UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +63,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         let labelEmployee = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
         labelEmployee.text = "Employee?"
         viewx.addSubview(labelEmployee)
-        let switchEmployee = UISwitch(frame: CGRect(x: 120, y: 0, width: 40, height: 40))
+        switchEmployee = UISwitch(frame: CGRect(x: 120, y: 0, width: 40, height: 40))
         viewx.addSubview(switchEmployee)
         viewx.center = CGPoint(x: screen.width/2, y: position)
         position += 60
@@ -351,17 +353,23 @@ class RegisterController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        let verify = false
-        
-        let dictionary = ["email":email, "gender":gender, "firstName":firstName, "lastName":lastName, "dateOfBirth":dateOfBirth, "countryOfOrigin":countryOfOrigin, "profession":profession, "employee":false, "verify":verify] as [String : Any]
+        let verify = self.isEmployee
+        let employee = self.switchEmployee.isOn
+        let dictionary = ["email":email, "gender":gender, "firstName":firstName, "lastName":lastName, "dateOfBirth":dateOfBirth, "countryOfOrigin":countryOfOrigin, "profession":profession, "employee":employee, "verify":verify] as [String : Any]
         
         Database.database().reference().child("users").child((user?.uid)!).setValue(dictionary)
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.userGlobal = User(user: user!, dictionary: dictionary)
         
-        self.navigationController?.pushViewController(RegisterController(), animated: true)
-        
+        if (employee){
+            let alert = UIAlertController(title: "Success!", message: "The refugee's data has been saved!", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (alert) in
+                self.navigationController?.pushViewController(HomeController(), animated: true)
+            }))
+        } else {
+            self.navigationController?.pushViewController(VerifyController(), animated: true)
+        }
     }
 
     }
