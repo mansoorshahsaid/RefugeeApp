@@ -25,7 +25,6 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         let screen = UIScreen.main.bounds
         
         view.backgroundColor = UIColor.white//Setting the background color for the view
-        
         self.view.addSubview(scrollView)
         
         
@@ -115,9 +114,11 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         let screenWidth = screensize.width
         let screenHeight = screensize.height
         var scrollView: UIScrollView!
-        let v = UIScrollView(frame: CGRect(x: 0, y: 60, width: screenWidth, height: screenHeight))
+        
+        let v = UIScrollView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
         v.contentSize = CGSize(width: screenWidth, height: 900)
         v.isScrollEnabled = true
+        v.contentInsetAdjustmentBehavior = .never
         //v.translatesAutoresizingMaskIntoConstraints = false
         //v.backgroundColor = UIColor.white
         return v
@@ -135,6 +136,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     let passwordTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Password"
+        tf.isSecureTextEntry = true
         tf.borderStyle = UITextBorderStyle.roundedRect
         //tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
@@ -350,6 +352,13 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     }
     
     
+    func isValidEmail(testStr:String) -> Bool {
+        // print("validate calendar: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
     
    @objc  func handleLoginRegister(){
 
@@ -361,23 +370,45 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     let dateOfBirth = ageTextField.text!
     let countryOfOrigin = countryOfOriginTextField.text!
     let profession = professionTextField.text!
+    
+    if (email == "" || password == "" || gender == "" || firstName == "" || lastName == "" || dateOfBirth == "" || countryOfOrigin == "" || profession == ""){
+        let alert = UIAlertController(title: "Missing fields", message: "Please fill in missing registration fields.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        return;
+    }
+    
+    if (password.count < 6){
+        let alert = UIAlertController(title: "Password too short", message: "The password must be 6 characters long or more", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        return;
+    }
+    
+    if(isValidEmail(testStr: email) == false){
+        let alert = UIAlertController(title: "Email invalid", message: "Please enter a valid email address", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        return;
+    }
+    
     if (user == nil){
-    Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if (error != nil || user?.uid == nil){
                 print("cannot register")
                 print(error)
                 return
             }
-        
+            
             let verify = self.isEmployee
             let employee = self.switchEmployee.isOn
             let dictionary = ["email":email, "gender":gender, "firstName":firstName, "lastName":lastName, "dateOfBirth":dateOfBirth, "countryOfOrigin":countryOfOrigin, "profession":profession, "employee":employee, "verify":verify] as [String : Any]
-        
+            
             Database.database().reference().child("users").child((user?.uid)!).setValue(dictionary)
-        
+            
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.userGlobal = User(user: user!, dictionary: dictionary)
-        
+            
             if (verify){
                 let alert = UIAlertController(title: "Success!", message: "The refugee's data has been saved!", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (alert) in
@@ -387,23 +418,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
                 self.navigationController?.pushViewController(VerifyController(), animated: true)
             }
         }
-    } else {
-        let verify = self.isEmployee
-        let employee = self.switchEmployee.isOn
-        let dictionary = ["gender":gender, "firstName":firstName, "lastName":lastName, "dateOfBirth":dateOfBirth, "countryOfOrigin":countryOfOrigin, "profession":profession, "employee":employee, "verify":verify] as [String : Any]
-        Database.database().reference().child("users").child(user.id).updateChildValues(dictionary)
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.userGlobal = User(user: user.fireBaseUser, dictionary: dictionary)
-        if (appDelegate.userGlobal.verified){
-            let alert = UIAlertController(title: "Success!", message: "Your info is now updated!", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (alert) in
-                self.navigationController?.pushViewController(HomeController(), animated: true)
-            }))
-        } else {
-            self.navigationController?.pushViewController(VerifyController(), animated: true)
-        }
     }
-
+    
     }
 
     //MARK: Hide Keyboard
