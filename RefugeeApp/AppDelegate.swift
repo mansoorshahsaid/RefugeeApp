@@ -33,10 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         //Root view
-
-        window?.rootViewController = UINavigationController(rootViewController: InitialController())
-
-        
+        window?.rootViewController = UINavigationController(rootViewController: LoginController())
         return true
     }
 

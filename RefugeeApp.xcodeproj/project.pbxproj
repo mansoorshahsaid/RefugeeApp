@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3C82AEB7ECAD631FF0C8DEC2 /* Pods_RefugeeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83801C0CF34AA47F29141ECD /* Pods_RefugeeApp.framework */; };
+		71CF49461FCA341E0038FCF2 /* InitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CF49451FCA341E0038FCF2 /* InitialController.swift */; };
 		892CAD441FCA5027008A9031 /* login-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 892CAD431FCA5025008A9031 /* login-animation.json */; };
 		892CAD461FCA5D6B008A9031 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892CAD451FCA5D6B008A9031 /* User.swift */; };
-		71CF49461FCA341E0038FCF2 /* InitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CF49451FCA341E0038FCF2 /* InitialController.swift */; };
 		892E7C0B1FC9F54700590BEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E7C0A1FC9F54700590BEC /* AppDelegate.swift */; };
 		892E7C0D1FC9F54700590BEC /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E7C0C1FC9F54700590BEC /* LoginController.swift */; };
 		892E7C101FC9F54700590BEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892E7C0E1FC9F54700590BEC /* Main.storyboard */; };
@@ -18,6 +18,7 @@
 		892E7C151FC9F54700590BEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892E7C131FC9F54700590BEC /* LaunchScreen.storyboard */; };
 		983702AE1FCA5A52000E02E9 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983702AD1FCA5A52000E02E9 /* RegisterController.swift */; };
 		98518B881FCA208E001BFAD1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98518B871FCA208E001BFAD1 /* GoogleService-Info.plist */; };
+		BB481CEC1FCA64B9005394B7 /* VerifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB481CEB1FCA64B9005394B7 /* VerifyController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		983702AD1FCA5A52000E02E9 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		98518B871FCA208E001BFAD1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A6A564ECD26EEA6DC97C76C7 /* Pods-RefugeeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefugeeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RefugeeApp/Pods-RefugeeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		BB481CEB1FCA64B9005394B7 /* VerifyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyController.swift; sourceTree = "<group>"; };
 		BED2EF492DB08321BAB90CD6 /* Pods-RefugeeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefugeeApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RefugeeApp/Pods-RefugeeApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +100,7 @@
 			children = (
 				892E7C0A1FC9F54700590BEC /* AppDelegate.swift */,
 				892E7C0C1FC9F54700590BEC /* LoginController.swift */,
+				BB481CEB1FCA64B9005394B7 /* VerifyController.swift */,
 				71CF49451FCA341E0038FCF2 /* InitialController.swift */,
 				983702AD1FCA5A52000E02E9 /* RegisterController.swift */,
 				892E7C0E1FC9F54700590BEC /* Main.storyboard */,
@@ -253,6 +256,7 @@
 				983702AE1FCA5A52000E02E9 /* RegisterController.swift in Sources */,
 				71CF49461FCA341E0038FCF2 /* InitialController.swift in Sources */,
 				892E7C0D1FC9F54700590BEC /* LoginController.swift in Sources */,
+				BB481CEC1FCA64B9005394B7 /* VerifyController.swift in Sources */,
 				892E7C0B1FC9F54700590BEC /* AppDelegate.swift in Sources */,
 				892CAD461FCA5D6B008A9031 /* User.swift in Sources */,
 			);
