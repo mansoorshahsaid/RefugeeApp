@@ -65,6 +65,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     let passwordTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Password"
+        tf.isSecureTextEntry = true
         tf.borderStyle = UITextBorderStyle.roundedRect
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
@@ -113,9 +114,19 @@ class LoginController: UIViewController, UITextFieldDelegate {
         let email = nameTextField.text!
         let password = passwordTextField.text!
         
+        if (email == "" || password == ""){
+            let alert = UIAlertController(title: "Missing fields", message: "Please enter your username and password.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return;
+        }
+        
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if (error != nil || user?.uid == nil){
                 print("error logging in")
+                let alert = UIAlertController(title: "Error Logging In", message: "Please enter a valid username and password.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 return
             }
             let appDelegate = UIApplication.shared.delegate as! AppDelegate

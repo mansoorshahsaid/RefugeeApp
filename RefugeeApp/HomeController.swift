@@ -30,6 +30,9 @@ class HomeController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        
+        button.addTarget(self, action: #selector(updateAction), for: .touchUpInside)
+
         return button
         
     }()
@@ -41,6 +44,9 @@ class HomeController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        
+        button.addTarget(self, action: #selector(registerAction), for: .touchUpInside)
+
         return button
     }()
     
@@ -48,13 +54,40 @@ class HomeController: UIViewController {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 41, g:199, b:150)
         button.setTitle("Find Helper Near Me", for: .normal)
-       button.translatesAutoresizingMaskIntoConstraints = false
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        
+        button.addTarget(self, action: #selector(findHelpAction), for: .touchUpInside)
+
+        
         return button
     }()
     
-    //MARK: View Did Load
+
+    @objc func updateAction(){
+        let register = RegisterController()
+        if (isEmployee){
+            // send to new vc
+        } else {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            register.user = appDelegate.userGlobal
+            self.navigationController?.pushViewController(register, animated: true)
+        }
+    }
+    
+    @objc func registerAction(){
+        let register = RegisterController()
+        register.isEmployee = true
+        self.navigationController?.pushViewController(register, animated: true)
+    }
+    
+    @objc func findHelpAction(){
+        let verify = VerifyController()
+        self.navigationController?.pushViewController(verify, animated: true)
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
