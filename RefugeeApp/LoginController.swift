@@ -67,7 +67,7 @@ class LoginController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
         
-        button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
+        //button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
     
@@ -80,7 +80,7 @@ class LoginController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
         
-        button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
         return button
     }()
     
@@ -184,6 +184,11 @@ class LoginController: UIViewController {
         registerButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         
         
+    }
+    
+   @objc func handleRegister(){
+        
+        self.navigationController?.pushViewController(RegisterController(), animated: true)
     }
 
 }
