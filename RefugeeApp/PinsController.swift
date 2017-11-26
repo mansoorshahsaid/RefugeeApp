@@ -19,12 +19,13 @@ class PinsController: UIViewController {
     view.addSubview(imageWoman)
     view.addSubview(howFar)
     view.addSubview(phoneNumber)
+    view.addSubview(email)
     
     setupFullName()
     setupImageWoman()
     setupHowFar()
     setupPhoneNumber()
-        
+    setupEmail()
     }
     
     //FULL NAME
@@ -43,7 +44,7 @@ class PinsController: UIViewController {
     
         func setupFullName(){
             // need x, y, width, height constraints
-            fullName.topAnchor.constraint(equalTo: view.topAnchor, constant: 130).isActive = true
+            fullName.topAnchor.constraint(equalTo: view.topAnchor, constant: 110).isActive = true
             fullName.heightAnchor.constraint(equalToConstant: 25).isActive = true
             fullName.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
             fullName.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
@@ -112,6 +113,27 @@ class PinsController: UIViewController {
             phoneNumber.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
             phoneNumber.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         }
-        
+    
+    //E-MAIL
+        let email: UILabel = {
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 600, height: 40))
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.text = "placeholder@potato.com"
+            label.numberOfLines = 0
+            label.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.0)
+            label.font = UIFont.boldSystemFont(ofSize: 25)
+            label.textColor = UIColor(r: 41, g: 199, b: 150)
+            label.textAlignment = .center
+            
+            return label
+        }()
+    
+        func setupEmail(){
+            // need x, y, width, height constraints
+            email.topAnchor.constraint(equalTo: phoneNumber.bottomAnchor, constant: 25).isActive = true
+            email.heightAnchor.constraint(equalToConstant: 25).isActive = true
+            email.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
+            email.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
+        }
 
 }
