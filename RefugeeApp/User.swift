@@ -21,7 +21,9 @@ class User:NSObject{
     var countryOfOrigin:String!
     var profession:String!
     var employee:Bool!
+    var verified:Bool!
     var dictonary:[String:Any]!
+
     
     init(user:UserInfo, dictionary:[String:Any]) {
         fireBaseUser = user
@@ -34,5 +36,6 @@ class User:NSObject{
         countryOfOrigin = dictionary["countryOfOrigin"] as! String
         profession = dictionary["profession"] as! String
         employee = dictionary["employee"] as! Bool
+        verified = dictionary["verified"] as! Bool
     }
 }
