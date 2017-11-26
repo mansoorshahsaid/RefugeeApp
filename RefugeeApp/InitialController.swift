@@ -29,7 +29,7 @@ class InitialController: UIViewController {
         view.backgroundColor = UIColor.white
         setupLoginRegisterButton()
     }
-
+//comment
     
     //MARK: Constraints
     
