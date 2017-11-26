@@ -30,7 +30,7 @@ class MapController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
         
-        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 01)// how much we want our map to be zoomed in on our users location
+        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.05, 0.05)// how much we want our map to be zoomed in on our users location
         let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         let region: MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
         mapView.setRegion(region, animated: true)

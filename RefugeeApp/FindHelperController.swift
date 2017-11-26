@@ -54,7 +54,7 @@ class FindHelperController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
         
-        //button.addTarget(self, action: #selector(handleMaps), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleMaps), for: .touchUpInside)
         return button
     }()
     
@@ -182,8 +182,11 @@ class FindHelperController: UIViewController {
     }
     
     @objc func handleVerify(){
-        
         self.navigationController?.pushViewController(VictoryController(), animated: true)
+    }
+    
+    @objc func handleMaps(){
+        self.navigationController?.pushViewController(MapController(), animated: true)
     }
 
 }
