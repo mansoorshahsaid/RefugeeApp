@@ -17,7 +17,7 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.gray//Setting the background color for the view
+        view.backgroundColor = UIColor.white//Setting the background color for the view
         
         //lay view on the main view
         view.addSubview(nameTextField)
