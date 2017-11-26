@@ -72,12 +72,23 @@ class LoginController: UIViewController {
         let password = passwordTextField.text!
         
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            if (error != nil){
+            if (error != nil || user?.uid == nil){
                 print("error logging in")
                 return
             }
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.userGlobal = User(user: user!)
+            
+            let userID = user?.uid
+            Database.database().reference().child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+                let dictionary = snapshot.value as! [String:Any]
+                
+                appDelegate.userGlobal = User(user: user!, dictionary: dictionary)
+                print(appDelegate.userGlobal)
+                
+                
+            }) { (error) in
+                print(error.localizedDescription)
+            }
         }
         
 //        animationView.play { (true) in

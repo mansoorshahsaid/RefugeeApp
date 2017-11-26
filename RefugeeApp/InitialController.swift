@@ -100,11 +100,11 @@ class InitialController: UIViewController {
     }
     
     @objc func handleLoginRegister(){
-        self.navigationController?.show(LoginController(), sender: self)
+        self.navigationController?.pushViewController(LoginController(), animated: true)
     }
     
     @objc func handleSignUpRegister(){
-       self.navigationController?.show(RegisterController(), sender: self)
+        self.navigationController?.pushViewController(RegisterController(), animated: true)
     }
     
 }

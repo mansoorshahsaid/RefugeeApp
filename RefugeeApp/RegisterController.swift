@@ -289,12 +289,19 @@ class RegisterController: UIViewController, UIScrollViewDelegate {
     Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
         if (error != nil || user?.uid == nil){
             print("cannot register")
+            print(error)
             return
         }
         
-        let dictionary = ["gender":gender, "firstName":firstName, "lastName":lastName, "dateOfBirth":dateOfBirth, "countryOfOrigin":countryOfOrigin, "profession":profession, "employee":0] as [String : Any]
+        let dictionary = ["email":email, "gender":gender, "firstName":firstName, "lastName":lastName, "dateOfBirth":dateOfBirth, "countryOfOrigin":countryOfOrigin, "profession":profession, "employee":false] as [String : Any]
         
         Database.database().reference().child("users").child((user?.uid)!).setValue(dictionary)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.userGlobal = User(user: user!, dictionary: dictionary)
+        
+        self.navigationController?.pushViewController(RegisterController(), animated: true)
+        
     }
 
     }
