@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import Lottie
+import Firebase
 
 class LoginController: UIViewController {
 
+    var animationView:LOTAnimationView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.white//Setting the background color for the view
+        view.backgroundColor = UIColor.gray//Setting the background color for the view
         
         //lay view on the main view
         view.addSubview(nameTextField)
@@ -24,6 +27,12 @@ class LoginController: UIViewController {
         setupPasswordTextField()
         setupRegisterButton()
         
+//        let screen = UIScreen.main.bounds
+//        animationView = LOTAnimationView(name: "login-animation")
+//        animationView.center = CGPoint(x: screen.width/2, y: screen.height - 100)
+//        animationView.play()
+//        animationView.setProgressWithFrame(1)
+//        self.view.addSubview(animationView)
     }
     
     let nameTextField: UITextField = {
@@ -48,9 +57,27 @@ class LoginController: UIViewController {
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         
-        //button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
         return button
     }()
+    
+    @objc func handleLoginRegister(){
+        let email = nameTextField.text!
+        let password = passwordTextField.text!
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if (error != nil){
+                print("error logging in")
+                return
+            }
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.userGlobal = User(user: user)
+        }
+        
+//        animationView.play { (true) in
+//            self.animationView.setProgressWithFrame(1)
+//        }
+    }
     
     func setuplogInTextField(){
         

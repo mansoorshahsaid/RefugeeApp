@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3C82AEB7ECAD631FF0C8DEC2 /* Pods_RefugeeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83801C0CF34AA47F29141ECD /* Pods_RefugeeApp.framework */; };
+		892CAD441FCA5027008A9031 /* login-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 892CAD431FCA5025008A9031 /* login-animation.json */; };
+		892CAD461FCA5D6B008A9031 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892CAD451FCA5D6B008A9031 /* User.swift */; };
 		892E7C0B1FC9F54700590BEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E7C0A1FC9F54700590BEC /* AppDelegate.swift */; };
 		892E7C0D1FC9F54700590BEC /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E7C0C1FC9F54700590BEC /* LoginController.swift */; };
 		892E7C101FC9F54700590BEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892E7C0E1FC9F54700590BEC /* Main.storyboard */; };
@@ -18,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		83801C0CF34AA47F29141ECD /* Pods_RefugeeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RefugeeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		892CAD431FCA5025008A9031 /* login-animation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "login-animation.json"; sourceTree = "<group>"; };
+		892CAD451FCA5D6B008A9031 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		892E7C071FC9F54700590BEC /* RefugeeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefugeeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		892E7C0A1FC9F54700590BEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		892E7C0C1FC9F54700590BEC /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		892CAD471FCA5DC3008A9031 /* animations */ = {
+			isa = PBXGroup;
+			children = (
+				892CAD431FCA5025008A9031 /* login-animation.json */,
+			);
+			path = animations;
+			sourceTree = "<group>";
+		};
 		892E7BFE1FC9F54700590BEC = {
 			isa = PBXGroup;
 			children = (
@@ -84,9 +96,11 @@
 				892E7C0C1FC9F54700590BEC /* LoginController.swift */,
 				892E7C0E1FC9F54700590BEC /* Main.storyboard */,
 				892E7C111FC9F54700590BEC /* Assets.xcassets */,
+				892CAD451FCA5D6B008A9031 /* User.swift */,
 				892E7C131FC9F54700590BEC /* LaunchScreen.storyboard */,
 				892E7C161FC9F54700590BEC /* Info.plist */,
 				98518B871FCA208E001BFAD1 /* GoogleService-Info.plist */,
+				892CAD471FCA5DC3008A9031 /* animations */,
 			);
 			path = RefugeeApp;
 			sourceTree = "<group>";
@@ -153,6 +167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				892CAD441FCA5027008A9031 /* login-animation.json in Resources */,
 				892E7C151FC9F54700590BEC /* LaunchScreen.storyboard in Resources */,
 				892E7C121FC9F54700590BEC /* Assets.xcassets in Resources */,
 				892E7C101FC9F54700590BEC /* Main.storyboard in Resources */,
@@ -188,6 +203,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RefugeeApp/Pods-RefugeeApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
@@ -195,6 +211,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
@@ -229,6 +246,7 @@
 			files = (
 				892E7C0D1FC9F54700590BEC /* LoginController.swift in Sources */,
 				892E7C0B1FC9F54700590BEC /* AppDelegate.swift in Sources */,
+				892CAD461FCA5D6B008A9031 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

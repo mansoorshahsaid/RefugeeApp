@@ -9,5 +9,6 @@ target 'RefugeeApp' do
 
 pod 'Firebase/Database'
 pod 'lottie-ios'
+pod 'Firebase/Auth'
 
 end
