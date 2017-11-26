@@ -51,7 +51,7 @@ class FindHelperController: UIViewController {
         button.setTitle("Search On Maps", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.layer.cornerRadius = 10
         
         button.addTarget(self, action: #selector(handleMaps), for: .touchUpInside)
@@ -63,7 +63,7 @@ class FindHelperController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         //label.text = "Thank You"
         label.numberOfLines = 0;
-        label.backgroundColor = UIColor(r: 41, g: 199, b: 150)
+        label.backgroundColor = UIColor(r: 220, g: 220, b: 220)
         label.font = UIFont.boldSystemFont(ofSize: 30)
         //label.textColor = UIColor(r: 41, g: 199, b: 150)
         label.textAlignment = .center
@@ -91,7 +91,7 @@ class FindHelperController: UIViewController {
         button.setTitle("Get Verified", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.layer.cornerRadius = 10
         
         button.addTarget(self, action: #selector(handleVerify), for: .touchUpInside)
@@ -141,7 +141,7 @@ class FindHelperController: UIViewController {
     func setupSearchButton(){
         // need x, y, width, height constraints
         searchButton.topAnchor.constraint(equalTo: imageConnect.bottomAnchor, constant: 20).isActive = true
-        searchButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        searchButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
         searchButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         searchButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
     }
@@ -176,7 +176,7 @@ class FindHelperController: UIViewController {
     func setupGetVerifiedButton(){
         // need x, y, width, height constraints
         getVerifiedButton.topAnchor.constraint(equalTo: imageHelper.bottomAnchor, constant: 20).isActive = true
-        getVerifiedButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        getVerifiedButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
         getVerifiedButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         getVerifiedButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
     }
