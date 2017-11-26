@@ -393,6 +393,13 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         return;
     }
     
+    if (employeeVerification){
+        let alert = UIAlertController(title: "Success!", message: "Refugee information updated and verified!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        return
+    }
+    
     if (user == nil){
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if (error != nil || user?.uid == nil){
