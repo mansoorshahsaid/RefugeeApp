@@ -1,7 +1,8 @@
 # RefugeeApp
 BlockHacks - Hackthon Finalist
 
-Team
+Team: 
+
 Mansoor: https://github.com/mansoorshahsaid
 
 Andres: https://github.com/javidozam
